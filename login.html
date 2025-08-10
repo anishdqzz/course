@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Login</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("Background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+
+    .login {
+      text-align: center;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.103);
+      width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .login:hover {
+      background-color: rgba(128, 255, 0, 0.185);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color:skyblue;
+      color:white;
+      
+    }
+
+    input {
+      margin: 10px;
+      padding: 8px;
+      text-align: center;
+      display: inline-block;
+      
+      border-radius: 5px;
+    }
+
+    p {
+      color: rgba(0, 0, 0, 0.349);
+    }
+
+    h2 {
+      color: rgba(0, 0, 0, 0.788);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  
+  <center>
+    <h2>LOGIN PAGE</h2>
+    <div class="login">
+      <label for="username">Username</label><br>
+      <input type="text" placeholder="ex:Anish012" required id="username"><br>
+
+      <label for="password">Password</label><br>
+      <input type="password" id="password" placeholder="password" required><br>
+
+      <input type="checkbox" id="rememberme">
+      <label for="remember">Remember me</label>
+      <br>
+
+      <a href="Register.html">Register</a> /
+      <a href="forgetpass.html">Forget Password</a>
+      <br><br>
+
+      <button onclick="login()">Submit</button>
+
+      <p >@2025 Anish Project</p>
+    </div>
+  </center>
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const rememberme = document.getElementById("rememberme").checked;
+      
+      if(username === 'Anish' && password === '123'){
+        alert("Login successful");
+        window.location.href='http://127.0.0.1:5500/public/loginafter.html';
+      }
+      else{
+        alert("Invalid username or password");
+      }
+      
+      if(rememberme){
+        localStorage.setItem("savedname", username);
+      }
+      else{
+        localStorage.removeItem("savedname");
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
